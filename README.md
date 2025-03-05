@@ -1,64 +1,71 @@
 # **Time Series Forecasting in Python**
 
-_Analyzing and predicting future trends using time series forecasting techniques._
+_A project leveraging Machine Learning and Deep Learning techniques for time series forecasting._
 
 ## 🔹 **Overview**
-This project implements **time series forecasting models** to predict future values based on past data trends. It explores:
+This repository contains a complete pipeline for **time series forecasting**, utilizing traditional machine learning models and deep learning architectures like **LSTM and GRU**. The project incorporates advanced feature engineering, hyperparameter tuning, and ensemble learning to enhance predictive accuracy.
 
 ✅ **Key Features:**
-- Exploratory Data Analysis (EDA) on time series 📊
-- **ARIMA, SARIMA, LSTM** for forecasting 📈
-- Performance evaluation using MSE, RMSE ✅
-- Data visualization with Matplotlib & Seaborn 🎨
+- **Feature Engineering**: Temporal features, lag-based features, and exponential weighted moving averages.
+- **Modeling**: XGBoost, LightGBM, and LSTM-based deep learning models.
+- **Ensemble Learning**: Model stacking and weighted blending for improved forecasts.
+- **Hyperparameter Optimization**: Using **Optuna** for tuning ML models.
+- **Visualization**: SHAP feature importance and interactive plots with Plotly.
+- **Deployment Ready**: Pre-trained models saved for future use.
 
 ## 🔹 **Tech Stack**
-- 🟢 Python (Pandas, NumPy, Matplotlib, Seaborn)
-- 🟢 Statsmodels (ARIMA, SARIMA)
-- 🟢 TensorFlow/Keras (LSTM models)
+- 🟢 Python (Pandas, NumPy, SciKit-Learn, TensorFlow, XGBoost, LightGBM)
 - 🟢 Jupyter Notebook / Google Colab
-
-## 🔹 **Dataset**
-- Uses a time-series dataset (e.g., **Stock Prices, Temperature Data**)
-- Preprocessing steps: **Handling missing values, Normalization**
+- 🟢 Visualization: Matplotlib, Seaborn, Plotly, SHAP
+- 🟢 Model Persistence: Joblib & TensorFlow SavedModel
 
 ## 🔹 **Installation & Setup**
 ```bash
 # Clone the repository
-git clone https://github.com/Rishita-rm/Time-Series-Forecasting-In-Python.git
+git clone https://github.com/your-username/TimeSeriesForecasting.git
 
 # Navigate to the project folder
-cd Time-Series-Forecasting-In-Python
+cd TimeSeriesForecasting
 
 # Install dependencies
 pip install -r requirements.txt
-
-# Run the Jupyter Notebook
-jupyter notebook
 ```
 
-## 🔹 **Implementation Steps**
-1️⃣ Load & preprocess dataset  
-2️⃣ Perform **time series decomposition**  
-3️⃣ Train **ARIMA, SARIMA, LSTM models**  
-4️⃣ Evaluate performance using **MSE, RMSE**  
-5️⃣ Predict future values and visualize trends  
-
-## 🔹 **Results & Accuracy**
-📌 **Model Comparison:**
-- **ARIMA Model:** RMSE = 12.5
-- **SARIMA Model:** RMSE = 10.2 ✅
-- **LSTM Model:** RMSE = 9.8 (Best Performance) 🎯
-
 ## 🔹 **How to Use?**
-1. Load your dataset in the Jupyter Notebook
-2. Train different forecasting models
-3. Compare model performances using RMSE
-4. Make predictions for future time steps
+1. Load the dataset (**Ensure 'Date' is in datetime format**).
+2. Perform **feature engineering** and **data scaling**.
+3. Train models (**XGBoost, LightGBM, LSTM**).
+4. Optimize using **Optuna hyperparameter tuning**.
+5. Evaluate performance using **MAE and RMSE metrics**.
+6. Visualize results & predictions.
+7. Save models for deployment.
+
+## 🔹 **Example Code**
+📌 **Train and Evaluate LSTM Model**
+```python
+# Define LSTM model
+lstm_model = Sequential([
+    Bidirectional(LSTM(100, return_sequences=True, input_shape=(X_train.shape[1], 1))),
+    Dropout(0.2),
+    GRU(100, return_sequences=False),
+    Dropout(0.2),
+    Dense(1)
+])
+
+# Compile and Train
+lstm_model.compile(optimizer='adam', loss='mse')
+lstm_model.fit(train_gen, epochs=20, verbose=1)
+```
+
+## 🔹 **Results & Evaluation**
+✅ **Mean Absolute Error (MAE) & Root Mean Squared Error (RMSE)** evaluated for all models.
+✅ **SHAP analysis** for feature importance interpretation.
+✅ **Plotly visualizations** for interactive trend analysis.
 
 ## 🔹 **Future Improvements**
-✅ Implement **Prophet Model** for forecasting 🔮  
-✅ Build a **real-time dashboard** for predictions 📊  
-✅ Deploy as a **Flask API** for external use 🌐  
+✅ Improve model interpretability with Explainable AI 📖  
+✅ Incorporate external data sources (e.g., economic indicators) 📊  
+✅ Deploy as an interactive web app 🚀  
 
 ## 🔹 **Contributing**
 Want to contribute? Follow these steps:  
@@ -67,4 +74,7 @@ Want to contribute? Follow these steps:
 3. Commit changes  
 4. Push to the branch  
 5. Open a Pull Request  
+
+## 🔹 **Contact**
+🔗 [LinkedIn](https://linkedin.com/in/your-profile)  
 
